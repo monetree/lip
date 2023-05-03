@@ -7,7 +7,7 @@
 # xhost +local:root
 
 # 4. instantiate the container
-# docker run --rm --gpus all -v /tmp/.X11-unix:/tmp/.X11-unix -v $PWD:/workspace/src -e DISPLAY=$DISPLAY --device /dev/dri -ti wav2lip bash
+# docker run --rm --gpus 0 -v /tmp/.X11-unix:/tmp/.X11-unix -v $PWD:/workspace/src -e DISPLAY=$DISPLAY --device /dev/dri -ti wav2lip bash
 
 # NOTES:
 #force cpu only
