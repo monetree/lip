@@ -6,6 +6,7 @@
 # 3. allow root user to connect to the display
 # xhost +local:root
 
+#  sudo docker run --rm -v /tmp/.X11-unix:/tmp/.X11-unix -v $PWD:/workspace/src -e DISPLAY=$DISPLAY -ti wav2lip
 # 4. instantiate the container
 # docker run --rm --gpus 0 -v /tmp/.X11-unix:/tmp/.X11-unix -v $PWD:/workspace/src -e DISPLAY=$DISPLAY --device /dev/dri -ti wav2lip bash
 
