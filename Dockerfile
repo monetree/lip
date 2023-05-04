@@ -7,6 +7,7 @@
 # xhost +local:root
 
 #  sudo docker run --rm -v /tmp/.X11-unix:/tmp/.X11-unix -v $PWD:/workspace/src -e DISPLAY=$DISPLAY -ti wav2lip
+# python3 inference.py --checkpoint_path --face dictator_orig.mp4 --audio dictator_audio_extracted.wav
 # 4. instantiate the container
 # docker run --rm --gpus 0 -v /tmp/.X11-unix:/tmp/.X11-unix -v $PWD:/workspace/src -e DISPLAY=$DISPLAY --device /dev/dri -ti wav2lip bash
 
@@ -46,8 +47,8 @@ RUN git clone https://github.com/Rudrabha/Wav2Lip
 WORKDIR /workspace/Wav2Lip
 RUN pip3 install --upgrade pip
 RUN pip3 install -r requirements.txt
-
 RUN pip3 install -r requirements.txt
+RUN pip install "opencv-python-headless<4.3"
 
 RUN mkdir -p /root/.cache/torch/checkpoints && \
      curl -SL -o /root/.cache/torch/checkpoints/s3fd-619a316812.pth "http://dl.dropboxusercontent.com/s/ml6uey4mwtea28u/s3fd-619a316812.pth?dl=0"
